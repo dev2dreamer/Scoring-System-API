@@ -5,10 +5,15 @@ from fuzzywuzzy import process, fuzz
 import jellyfish
 import logging
 import re
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+MONGO_URL = os.getenv("MONGO_URL")
 
 class FoodDataProcessor:
-    def __init__(self, mongo_uri="mongodb+srv://p:zMtpS9kUGUwKmppe@mydbcluster.8axgt8u.mongodb.net/"):
+    def __init__(self, mongo_uri=MONGO_URL):
         self.client = MongoClient(mongo_uri)
         self.db = self.client['Aahar']
 

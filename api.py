@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 from typing import Dict, Optional, List, Any
-from Scoring import FoodScorer  # This uses MongoDB Atlas with connection string: mongodb+srv://p:zMtpS9kUGUwKmppe@mydbcluster.8axgt8u.mongodb.net/
+from Scoring import FoodScorer 
 import uvicorn
 import logging
 from fastapi.responses import JSONResponse, RedirectResponse

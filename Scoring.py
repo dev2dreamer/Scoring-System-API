@@ -3,13 +3,18 @@ from scipy.stats import beta
 import numpy as np
 from pymongo import MongoClient
 from typing import List, Optional, Dict
-import re
+import re 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+MONGO_URL = os.getenv("MONGO_URL")
 
 class FoodScorer:
     def __init__(self, user_context: Optional[Dict] = None):
         # Initialize MongoDB connection with proper error handling
         try:
-            self.client = MongoClient('mongodb+srv://p:zMtpS9kUGUwKmppe@mydbcluster.8axgt8u.mongodb.net/')
+            self.client = MongoClient(MONGO_URL)
             self.db = self.client['Aahar']
         except Exception as e:
             raise ConnectionError(f"Failed to connect to MongoDB: {str(e)}")
